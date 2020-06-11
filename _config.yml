@@ -1,2 +1,19 @@
-theme: jekyll-theme-minimal
+markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate,  jekyll-gist]
+permalink: /:year:month:day/:title/
+baseurl: ""
+paginate: 5
+description: 
+disqus_shortname:
 
+url: "http://koschicken.github.io"
+imgrepo: "http://koschicken.github.io/static/img"
+
+title: KoSChicken
+email: "springhyq9421@outlook.com"
+github: "KoSChicken"
+weibo_username: "1769731101"
+steam_username: "76561198099379856"
+
+theme: jekyll-theme-minimal
