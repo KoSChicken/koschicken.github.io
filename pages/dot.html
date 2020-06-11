@@ -1,0 +1,134 @@
+--- 
+title: FUN
+icon: fa-heart
+permalink: /fun/ 
+isNavItem: true
+published: true
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Koalas to the Max dot Com</title>
+  <link rel="shortcut icon" type="image/x-icon" media="screen" href="{{ '/static/favicon.ico' | prepend: site.baseurl | prepend: site.url}}"/>
+  <script type="text/javascript">var version = '1.9.4';</script>
+  <script type="text/javascript" src="{{ site.url }}/static/koalastothemaxdot/polyfill/polyfill.js?1.9.4"></script>
+  <!--[if gte IE 9]><!-->
+  <script type="text/javascript" src="{{ site.url }}/static/koalastothemaxdot/d3.min.js?1.9.4"></script>
+  <script type="text/javascript" src="{{ site.url }}/static/koalastothemaxdot/koala.js?1.9.4"></script>
+  <!--<![endif]-->
+  <link rel="stylesheet" type="text/css" href="{{ site.url }}/static/koalastothemaxdot/koala.css?1.9.4" />
+  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ site.url }}/css/base.css" type="text/css" />
+  <link rel="stylesheet" href="{{ site.url }}/css/github.css" type="text/css" />
+  <link rel="stylesheet" href="{{ site.url }}/css/octicons.css" type="text/css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+  <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro'>
+  <link rel="stylesheet" href="{{ site.url }}/css/syntax.css" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/3.2.1/pangu.min.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    {% include header.html %}
+    <p style="font-size:24px">最近发现了一个很好玩的东西。<a href="http://koalastothemax.com/" target="_blank">原地址</a></p>
+    <div id="center">
+      <div id="cont">
+        <noscript>
+          Your browser does not support JavaScript or it is disabled.<br> JavaScript is needed to view this site.
+        </noscript>
+        <div id="dots"></div>
+      </div>
+    </div>
+    <div id="footer_koala">
+      Made with <span id="love">love</span> by
+      <a href="http://vadim.ogievetsky.com">Vadim Ogievetsky</a> for
+      <a href="http://anniealbagli.com">Annie Albagli</a> &nbsp; / &nbsp; Powered by
+      <a href="http://d3js.org/">D3</a>
+    </div>
+  </div>
+  {% include footer.html %}
+
+
+  <script type="text/javascript">
+      // Code left intentionally unminimized for your reading pleasure.
+      (function() {
+        window.shownFile = 'none';
+
+        // First, make sure we can run.
+        if (!koala.supportsCanvas()) {
+          alert("Sorry, KoalsToTheMax needs HTML5 Canvas support which your browser does not have. Supported browsers include Chrome, Safari, Firefox, Opera, and Internet Explorer 9, 10");
+          return;
+        }
+
+        if (!koala.supportsSVG()) {
+          alert("Sorry, KoalsToTheMax needs SVG support which your browser does not have. Supported browsers include Chrome, Safari, Firefox, Opera, and Internet Explorer 9, 10");
+          return;
+        }
+
+        if (!window.d3) {
+          alert("Some how D3 was not loaded so the site can not start. This is bad... We are investigating. Try refreshing the page and see if that helps.");
+          return;
+        }
+
+        try {
+          function basicLoad(location) {
+            var file = '/static/koalastothemaxdot/normal_300.jpg'
+            console.log(location.protocol+'//'+location.host+file);
+            return {
+              file: file,
+              shownFile: location.protocol + '//' + location.host + file
+            };
+          }
+
+          function parseUrl(location) {
+            return basicLoad(location);
+          }
+
+          var parse = parseUrl(location);
+          if (!parse) return;
+          var file = parse.file;
+          window.shownFile = parse.shownFile;
+
+          function onEvent(what, value) {
+            track(what, value);
+
+            if (what === 'LayerClear' && value == 0) {
+              d3.select('#next')
+                .style('display', null)
+                .select('input')
+                  .on('keydown', function() {
+                    d3.select('div.err').remove();
+                    if (d3.event.keyCode !== 13) return;
+                    var input = d3.select(this).property('value');
+                  });
+            }
+          }
+
+          var img = new Image();
+          img.onload = function() {
+            var colorData;
+            try {
+              colorData = koala.loadImage(this);
+            } catch (e) {
+              colorData = null;
+              alert("Sorry, KoalsToTheMax could not load the image '" + file + "'");
+              setTimeout(function() {
+                window.location.href = domian;
+              }, 750);
+            }
+            if (colorData) {
+              koala.makeCircles("#dots", colorData, onEvent);
+            }
+          };
+          img.src = file;
+
+        } catch (e) {
+        }
+      })();
+    </script>
+  <!--<![endif]-->
+</body>
+
+</html>

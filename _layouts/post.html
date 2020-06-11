@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<script>
+    window.onload = function() {
+      pangu.spacingPage();
+    };
+</script>
+<h2>{{ page.title }}</h2>
+<p class="meta">{{ page.date | date: "%Y-%m-%d" }}</p>
+
+<div class="post">
+{{ content }}
+</div>
+
+{% if site.disqus_shortname %}
+{% include disqus_comments.html %}
+{% endif %}

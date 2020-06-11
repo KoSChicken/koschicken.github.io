@@ -1,0 +1,20 @@
+{% if paginator %}
+<!-- Pagination links -->
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a href="/" class="newer"><i class="fa fa-hand-o-left" aria-hidden="true"></i></a>
+    {% else %}
+      <a href="/page{{paginator.previous_page}}" class="newer"><i class="fa fa-hand-o-left" aria-hidden="true"></i></a>
+    {% endif %}
+  {% else %}
+    <span class="previous" style="display:none"><i class="fa fa-hand-o-left" aria-hidden="true"></i></span>
+  {% endif %}
+  {% if paginator.next_page %}
+    <a href="/page{{paginator.next_page}}" class="older"><i class="fa fa-hand-o-right" aria-hidden="true"></i></a>
+  {% else %}
+    <span class="next" style="display:none"><i class="fa fa-hand-o-right" aria-hidden="true"></i></span>
+  {% endif %}
+</div>
+{% endif %}
+

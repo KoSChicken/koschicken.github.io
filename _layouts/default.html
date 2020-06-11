@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {% include head.html %}
+</head>
+
+<body>
+  <script>
+    window.onload = function() {
+      pangu.spacingPage();
+    };
+  </script>
+  <div class="wrapper">
+    {% include header.html %}
+    <div class="container">
+      <div class="main">
+        <p class="intro">
+          {{ site.intro }}
+        </p>
+        {{ content }}
+      </div>
+      {% include pagination.html %}
+      <div class="push"></div>
+    </div>
+  </div>
+  {% include footer.html %}
+</body>
+
+</html>

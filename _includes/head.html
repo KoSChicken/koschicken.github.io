@@ -1,0 +1,26 @@
+<meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ site.title}}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+{% if page.tags %}<meta name="keywords" content="{{ page.tags | join: ', ' }}">{% endif %}
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+
+<link rel="shortcut icon" type="image/x-icon" media="screen" href="{{ '/static/favicon.ico' | prepend: site.baseurl | prepend: site.url}}" />
+{% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' | strip_slash }}{% endif %}{% endcapture %}
+<link rel="canonical" href="{{ canonical }}">
+<link href="{{ site.url }}/feed.xml" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ site.url }}/css/base.css" type="text/css" />
+<link rel="stylesheet" href="{{ site.url }}/css/github.css" type="text/css" />
+<link rel="stylesheet" href="{{ site.url }}/css/octicons.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+<link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Source+Code+Pro'>
+<link rel="stylesheet" href="{{ site.url }}/css/syntax.css" type="text/css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/3.2.1/pangu.min.js"></script>
