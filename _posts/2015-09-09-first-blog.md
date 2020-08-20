@@ -1,8 +1,9 @@
 ---
-layout: post
-title: Yeah! 第一篇博客！
-tags: 扯淡 Jekyll
-categories: 扯淡
+title: Hello?
+date: 2015-09-09
+tags: [扯淡, Jekyll]
+categories: [扯淡]
+math: true
 ---
 
 千辛万苦终于把这个破烂博客给弄出来了。
