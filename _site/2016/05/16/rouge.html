@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>如何使用Rouge进行代码高亮</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="KoSChicken" />
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>如何使用Rouge进行代码高亮 | KoSChicken</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="如何使用Rouge进行代码高亮" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="这篇文章介绍如何使用Rouge实现代码高亮。" />
+<meta property="og:description" content="这篇文章介绍如何使用Rouge实现代码高亮。" />
+<link rel="canonical" href="http://localhost:4000/2016/05/16/rouge.html" />
+<meta property="og:url" content="http://localhost:4000/2016/05/16/rouge.html" />
+<meta property="og:site_name" content="KoSChicken" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-05-16T00:00:00+08:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","url":"http://localhost:4000/2016/05/16/rouge.html","headline":"如何使用Rouge进行代码高亮","dateModified":"2016-05-16T00:00:00+08:00","datePublished":"2016-05-16T00:00:00+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2016/05/16/rouge.html"},"description":"这篇文章介绍如何使用Rouge实现代码高亮。","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+  </head>
+  <body>
+    <nav>
+    
+      <a href="/" >Home</a>
+    
+      <a href="/about/" >About</a>
+    
+  </nav>
+    <h1>如何使用Rouge进行代码高亮</h1>
+<p>16 May 2016 - </p>
+
+<p>这篇文章介绍如何使用Rouge实现代码高亮。</p>
+
+<h2 id="前言">前言</h2>
+
+<p>时隔半年，我终于回想起我还有个博客，于是我决定往这个坑里面再填一铲子土。那么这次我来讲一讲怎么用Rouge这个插件完成代码高亮。</p>
+
+<h2 id="rouge是什么">Rouge是什么？</h2>
+
+<p>Rouge是一个基于Ruby的代码高亮工具，支持的语言非常多，基本上完全足够正常的博客需求。Rouge完全支持Pygments使用的CSS样式。</p>
+
+<h2 id="如何安装和启用rouge">如何安装和启用Rouge？</h2>
+
+<p>因为Rouge基于Ruby，所以要安装Ruby环境，如果用在Github Pages上的话，当然还要安装Jekyll。这两个东西的安装方法在我的上一篇文章里有。</p>
+
+<p>装好Ruby和Jekyll之后，只要在博客目录下的_config.yml里设置如下即可。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>highlighter: rouge
+</code></pre></div></div>
+
+<h2 id="效果演示">效果演示</h2>
+
+<p>下面我们来看一看这个代码高亮插件的效果：（高亮样式来自<a href="https://github.com/richleland/pygments-css">这里</a>）</p>
+
+<h4 id="java">Java</h4>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This is about &lt;code&gt;ClassName&lt;/code&gt;.
+ * {@link com.yourCompany.aPackage.Interface}
+ * @author author
+ * @deprecated use &lt;code&gt;OtherClass&lt;/code&gt;
+ */</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClassName</span><span class="o">&lt;</span><span class="no">E</span><span class="o">&gt;</span> <span class="kd">extends</span> <span class="nc">AnyClass</span> <span class="kd">implements</span> <span class="nc">InterfaceName</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="kd">enum</span> <span class="nc">Color</span> <span class="o">{</span> <span class="no">RED</span><span class="o">,</span> <span class="no">GREEN</span><span class="o">,</span> <span class="no">BLUE</span> <span class="o">};</span>
+    <span class="cm">/* This comment may span multiple lines. */</span>
+    <span class="kd">static</span> <span class="nc">Object</span> <span class="n">staticField</span><span class="o">;</span>
+    <span class="c1">// This comment may span only this line</span>
+    <span class="kd">private</span> <span class="no">E</span> <span class="n">field</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="nc">AbstractClassName</span> <span class="n">field2</span><span class="o">;</span>
+    <span class="c1">// TASK: refactor</span>
+    <span class="nd">@SuppressWarnings</span><span class="o">(</span><span class="n">value</span><span class="o">=</span><span class="s">"all"</span><span class="o">)</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">foo</span><span class="o">(</span><span class="nc">Integer</span> <span class="n">parameter</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">abstractMethod</span><span class="o">(</span><span class="n">inheritedField</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">local</span><span class="o">=</span> <span class="mi">42</span><span class="o">*</span><span class="n">hashCode</span><span class="o">();</span>
+        <span class="n">staticMethod</span><span class="o">();</span>
+        <span class="k">return</span> <span class="nf">bar</span><span class="o">(</span><span class="n">local</span><span class="o">)</span> <span class="o">+</span> <span class="n">parameter</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="javascript">JavaScript</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+ * This is about &lt;code&gt;Example.js&lt;/code&gt;.
+ * {@link com.yourCompany.aPackage.aFile}
+ * @author author
+ * @deprecated use &lt;code&gt;BetterExample.js&lt;/code&gt;
+ */</span>
+<span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">arr</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">function</span> <span class="nx">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="cm">/* This comment may span multiple lines. */</span>
+    <span class="kd">var</span> <span class="nx">var1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Object</span><span class="p">();</span>
+    <span class="kd">var</span> <span class="nx">obj</span> <span class="o">=</span> <span class="p">{</span> <span class="na">carMake</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Amet</span><span class="dl">'</span><span class="p">,</span> <span class="na">carModel</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Porro</span><span class="dl">'</span><span class="p">,</span> <span class="na">carYear</span><span class="p">:</span> <span class="mi">2012</span> <span class="p">};</span>
+    <span class="kd">var</span> <span class="nx">s</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">abc123</span><span class="dl">"</span><span class="p">;</span>
+    <span class="nx">clear</span><span class="p">(</span><span class="nx">var1</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">pop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">arr</span><span class="p">[</span><span class="nx">index</span><span class="o">--</span><span class="p">];</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">push</span><span class="p">(</span><span class="nx">elem</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// This comment may span only this line</span>
+    <span class="nx">arr</span><span class="p">[</span><span class="nx">index</span><span class="o">++</span><span class="p">]</span> <span class="o">=</span> <span class="nx">elem</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">isEmpty</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// TASK: refactor</span>
+    <span class="k">return</span> <span class="nx">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="ruby">Ruby</h4>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'redcarpet'</span>
+<span class="n">markdown</span> <span class="o">=</span> <span class="no">Redcarpet</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Hello World!"</span><span class="p">)</span>
+<span class="nb">puts</span> <span class="n">markdown</span><span class="p">.</span><span class="nf">to_html</span>
+</code></pre></div></div>
+
+<p>看起来还是可以的对吧？</p>
+
+  </body>
+</html>
