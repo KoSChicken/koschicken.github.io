@@ -61,10 +61,10 @@ math: true
 ![gui][gui]
 
 
-[bengkui]:  {{"/20150909/bengkui.jpg" | prepend: site.imgrepo }}
-[jingya]:  {{"/20150909/jingya.jpg" | prepend: site.imgrepo }}
-[liulei]:  {{"/20150909/liulei.gif" | prepend: site.imgrepo }}
-[githubmail1]:	{{"/20150909/githubmail1.jpg" | prepend: site.imgrepo }}
-[githubmail2]:	{{"/20150909/githubmail2.jpg" | prepend: site.imgrepo }}
-[blog0]:	{{"/20150909/blog0.jpg" | prepend: site.imgrepo }}
-[gui]:	{{"/20150909/gui.jpg" | prepend: site.imgrepo }}
+[bengkui]:  {{"/assets/img/20150909/bengkui.jpg"}}
+[jingya]:  {{"/assets/img/20150909/jingya.jpg"}}
+[liulei]:  {{"/assets/img/20150909/liulei.gif"}}
+[githubmail1]:	{{"/assets/img/20150909/githubmail1.jpg"}}
+[githubmail2]:	{{"/assets/img/20150909/githubmail2.jpg"}}
+[blog0]:	{{"/assets/img/20150909/blog0.jpg"}}
+[gui]:	{{"/assets/img/20150909/gui.jpg"}}
