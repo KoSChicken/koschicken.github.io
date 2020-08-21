@@ -21,6 +21,7 @@ url: 'https://koschicken.github.io'
 author: KoSChicken                  # change to your full name
 
 avatar: /assets/img/sample/avatar.jpg   # support internet resources
+imagerepo: /assets/img
 
 github:
   username: KoSChicken             # change to your github username
