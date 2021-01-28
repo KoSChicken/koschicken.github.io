@@ -1,4 +1,2 @@
-# 个人博客
-
-主题使用了 [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)
-
+## 合成大奈奈
+奈子大小仅供参考
